@@ -1,7 +1,7 @@
-var video, showVideo;
+var video, showVideo, canvas;
 
 function setup() {
-    var canvas = createCanvas(400, 400);
+    canvas = createCanvas(400, 400);
     canvas.position(10, 50);
     var videoButton = createButton('show video');
     videoButton.position(10, 460);
@@ -33,7 +33,7 @@ function draw() {
         image(video, 0, 0, width, height);
     } else {
         background(51);
-    }    
+    }
 }
 
 function mute() {
@@ -42,4 +42,14 @@ function mute() {
 
 function showMyVideo() {
     showVideo = !showVideo;
+}
+
+function resizeWindow(){
+    canvas.size(mouseX, mouseY);
+}
+
+function mouseDragged(){
+    canvas.size(mouseX, mouseY);
+
+    return false;
 }
